@@ -81,7 +81,7 @@ o bloco sumir da página, deixe `galeria: []`.
 **Só publique foto de casal depois que o casal autorizar** — é a mesma regra
 dos depoimentos.
 
-## 6. Como mudar planos, perguntas e depoimentos
+## 6. Como mudar formações, perguntas e depoimentos
 
 Tudo isso está no `assets/js/config.js`, com comentário explicando cada parte.
 
@@ -90,7 +90,10 @@ Tudo isso está no `assets/js/config.js`, com comentário explicando cada parte.
 - **Depoimentos:** a seção só aparece quando houver pelo menos um depoimento.
   Copie o modelo que está no comentário e cole dentro dos colchetes de
   `depoimentos: []`. Só publique com autorização do casal.
-- **Planos:** dá para mudar nome, formação e descrição. Lembre: **nenhum preço
+- **Formações:** ficam em três partes do config. `bases` são Essencial e
+  Harmonia (etapa 1); `destaques` são Metais, Violino e Metais e violino
+  (etapa 2); `completo` é o Encante Completo, o da faixa azul com o selo.
+  Em todas dá para mudar nome, formação e descrição. Lembre: **nenhum preço
   na página**, nem "a partir de".
 
 ## 7. Se uma alteração não aparecer no site publicado

@@ -2,7 +2,7 @@
    GRUPO ENCANTE - ARQUIVO DE CONFIGURAÇÃO
    ---------------------------------------------------------------------------
    Este é o ÚNICO arquivo que você precisa editar no dia a dia.
-   Tudo o que muda com o tempo (número do WhatsApp, vídeos, fotos, planos,
+   Tudo o que muda com o tempo (número do WhatsApp, vídeos, fotos, formações,
    perguntas frequentes, depoimentos) está aqui embaixo, com explicação.
 
    Regra de ouro: nunca coloque preços nesta página.
@@ -18,11 +18,13 @@ const CONFIG = {
      ------------------------------------------------------------------------- */
   whatsapp: "5584988057769",
 
-  /* Mensagens prontas que vão junto com o link do WhatsApp. */
+  /* Mensagens prontas que vão junto com o link do WhatsApp.
+     O trecho [NOME] é trocado automaticamente pelo nome do que foi clicado. */
   mensagens: {
     geral: "Olá! Vim pela página do Grupo Encante e gostaria de consultar valores para o meu casamento.",
-    // O trecho [NOME DO PLANO] é trocado automaticamente pelo plano clicado.
-    plano: "Olá! Vi o plano [NOME DO PLANO] na página do Grupo Encante e gostaria de consultar valores para o meu casamento.",
+    plano: "Olá! Vi o plano [NOME] na página do Grupo Encante e gostaria de consultar valores para o meu casamento.",
+    destaque: "Olá! Vi o destaque [NOME] para a marcha nupcial na página do Grupo Encante e gostaria de consultar valores para o meu casamento.",
+    completo: "Olá! Vi o Encante Completo na página do Grupo Encante e gostaria de consultar valores para o meu casamento.",
     repertorio: "Olá! Vim pela página do Grupo Encante e gostaria de ajuda para montar o repertório do meu casamento."
   },
 
@@ -45,14 +47,12 @@ const CONFIG = {
 
   /* -------------------------------------------------------------------------
      4) TOPO DA PÁGINA
-     Quando tiver a foto do grupo tocando, salve na pasta imagens/ e escreva o
-     caminho aqui. Exemplo: "imagens/grupo-cerimonia.jpg"
+     Foto deitada para o computador e foto em pé para o celular.
      Deixe "" (vazio) para usar o fundo provisório com a paleta.
      ------------------------------------------------------------------------- */
   fotoTopo: "imagens/site/topo.jpg",
-  // Versão em pé da mesma foto, usada no celular (deixe "" para usar só a de cima).
   fotoTopoCelular: "imagens/site/topo-celular.jpg",
-  fotoTopoAlt: "Grupo Encante tocando em um casamento: saxofone, voz e violão",
+  fotoTopoAlt: "Davi tocando violão e Maria Clara cantando em um casamento",
 
   /* -------------------------------------------------------------------------
      5) VÍDEOS
@@ -66,13 +66,13 @@ const CONFIG = {
     {
       arquivo: "",                 // ex.: "imagens/entrada-da-noiva.mp4"
       capa: "",                    // ex.: "imagens/capa-entrada.jpg"
-      titulo: "Entrada da noiva",
+      titulo: "Entrada da noiva com metais",
       provisorio: true             // troque para false quando colocar o vídeo real
     },
     {
       arquivo: "",
       capa: "",
-      titulo: "Marcha nupcial com metais",
+      titulo: "Entrada da noiva com violino",
       provisorio: true
     },
     {
@@ -107,7 +107,7 @@ const CONFIG = {
   ],
 
   /* -------------------------------------------------------------------------
-     6) O QUE ESTÁ INCLUSO EM QUALQUER PLANO
+     6) O QUE ESTÁ INCLUSO EM QUALQUER FORMAÇÃO
      ------------------------------------------------------------------------- */
   inclusos: [
     {
@@ -133,9 +133,9 @@ const CONFIG = {
   ],
 
   /* -------------------------------------------------------------------------
-     6.1) ÍCONES (instrumentos, alianças, portas e o selo do plano completo)
+     6.1) ÍCONES (instrumentos, alianças, portas e o selo do Encante Completo)
      Arquivos PNG de fundo transparente, na pasta imagens/icones/.
-     O nome da esquerda é o apelido usado em "icone" nas partes de cima.
+     O nome da esquerda é o apelido usado em "icone" nas partes de baixo.
      Se você apagar um nome daqui, a página volta a usar o desenho interno.
      ------------------------------------------------------------------------- */
   iconesImagem: {
@@ -143,106 +143,97 @@ const CONFIG = {
     violino: "imagens/icones/violino.png",
     teclado: "imagens/icones/teclado.png",
     trompete: "imagens/icones/trompete.png",
-    sax: "imagens/icones/sax.png",
+    saxofone: "imagens/icones/saxofone.png",
+    metaisEviolino: "imagens/icones/metais-violino.png",
     aliancas: "imagens/icones/aliancas.png",
     portas: "imagens/icones/portas.png",
     selo: "imagens/icones/selo-completo.png"
   },
 
   /* -------------------------------------------------------------------------
-     7) PLANOS
-     Não coloque preço em nenhum lugar. O botão sempre leva ao WhatsApp.
-     - base:     "essencial" (duas vozes e violão) ou "harmonia" (com teclado)
-     - destaque: "" (sem destaque na marcha), "metais" ou "violino"
-     - foto:     foto fechada do instrumento (pasta imagens/). Vazio = ícone dourado
+     7) ETAPA 1 — AS BASES
+     A formação que conduz a cerimônia inteira.
      ------------------------------------------------------------------------- */
-  planos: [
+  bases: [
     {
       nome: "Essencial",
-      base: "essencial",
-      destaque: "",
       formacao: "Duas vozes e violão",
       descricao: "A base do Encante: as duas vozes e o violão conduzindo toda a cerimônia.",
-      icone: "violao",
-      foto: ""
-    },
-    {
-      nome: "Essencial com Violino",
-      base: "essencial",
-      destaque: "violino",
-      formacao: "Duas vozes, violão e violino",
-      descricao: "O violino recebe a noiva na marcha nupcial e enriquece os momentos instrumentais.",
-      icone: "violino",
-      foto: ""
+      icone: "violao"
     },
     {
       nome: "Harmonia",
-      base: "harmonia",
-      destaque: "",
       formacao: "Duas vozes, violão e teclado",
       descricao: "O teclado dá corpo e preenchimento a todas as músicas da cerimônia.",
-      icone: "teclado",
-      foto: ""
-    },
-    {
-      nome: "Harmonia com Metais",
-      base: "harmonia",
-      destaque: "metais",
-      formacao: "Duas vozes, violão, teclado e dois trompetes",
-      descricao: "Dois trompetes à frente do altar para uma marcha nupcial imponente.",
-      icone: "trompete",
-      foto: ""
-    },
-    {
-      nome: "Harmonia com Violino",
-      base: "harmonia",
-      destaque: "violino",
-      formacao: "Duas vozes, violão, teclado e violino",
-      descricao: "A delicadeza do violino somada ao preenchimento do teclado.",
-      icone: "violino",
-      foto: ""
-    },
-    {
-      nome: "Encante Completo",
-      base: "harmonia",
-      destaque: "metais",
-      formacao: "Duas vozes, violão, teclado, dois trompetes e sax tenor",
-      descricao: "Tudo o que o Encante pode oferecer: a base completa e os metais recebendo a noiva à frente do altar.",
-      icone: "selo",
-      foto: "",
-      emDestaque: true,
-      // [CONFIRMAR] Texto do selo do plano em destaque.
-      selo: "Mais escolhido",
-      seloProvisorio: true
+      icone: "teclado"
     }
   ],
 
   /* -------------------------------------------------------------------------
-     8) QUEM SOMOS
+     8) ETAPA 2 — OS DESTAQUES DA MARCHA NUPCIAL
+     Podem ser escolhidos sozinhos ou os dois juntos.
      ------------------------------------------------------------------------- */
-  quemSomos: {
-    davi: {
-      nome: "Davi",
-      funcao: "Voz e violão",
-      texto: "[Texto provisório, a revisar.] Lidero o Grupo Encante no violão e na voz. Acompanho cada cerimônia junto com o casal, da primeira conversa até a última música.",
-      foto: "imagens/site/davi.jpg",
-      provisorio: true
+  destaques: [
+    {
+      nome: "Metais",
+      formacao: "Dois trompetes, com ou sem saxofone",
+      descricao: "Presença imponente e marcante para receber a noiva.",
+      icone: "trompete"
     },
-    parceira: {
-      nome: "Maria Clara",
-      funcao: "Vocalista principal",
-      texto: "[Texto provisório, a revisar.] É a voz principal do Grupo Encante e está presente em todas as cerimônias, conduzindo as músicas ao lado do Davi.",
-      foto: "imagens/site/maria-clara.jpg",
-      provisorio: true
+    {
+      nome: "Violino",
+      formacao: "Violino à frente do altar",
+      descricao: "Mais delicado e emocionante. Também brilha nas músicas instrumentais da cerimônia.",
+      icone: "violino"
     },
-    musicos: "Os demais instrumentos ficam com músicos parceiros profissionais, que tocam com a gente conforme a disponibilidade de cada data. A formação pode mudar; o cuidado com a sua cerimônia, não.",
-    // Foto que ilustra os músicos parceiros (deixe "" para não aparecer).
-    fotoMusicos: "imagens/site/grupo-igreja.jpg",
-    fotoMusicosAlt: "Músicos do Grupo Encante com trompetes e sax tenor diante do altar"
+    {
+      nome: "Metais e violino",
+      formacao: "Trompetes, saxofone e violino",
+      descricao: "A força dos metais com a delicadeza do violino, no mesmo momento.",
+      icone: "metaisEviolino"
+    }
+  ],
+
+  /* Frase que aparece logo abaixo dos três destaques. */
+  notaDestaques: "Vocês podem escolher metais, violino ou os dois. Nossos arranjos são pensados para que todos os instrumentos conversem entre si, seja qual for a combinação.",
+
+  /* -------------------------------------------------------------------------
+     9) ENCANTE COMPLETO (a formação em evidência)
+     ------------------------------------------------------------------------- */
+  completo: {
+    nome: "Encante Completo",
+    formacao: "Duas vozes, violão, teclado, dois trompetes, saxofone e violino",
+    descricao: "A formação mais grandiosa do Encante: todos os instrumentos juntos, da primeira entrada à música final.",
+    icone: "selo",
+    // [CONFIRMAR] Texto do selo. Deixe "" para não mostrar a pastilha dourada.
+    selo: "Mais escolhido",
+    seloProvisorio: true
   },
 
   /* -------------------------------------------------------------------------
-     9) DEPOIMENTOS
+     10) QUEM SOMOS
+     Use **asteriscos duplos** em volta de uma palavra para deixá-la em negrito.
+     ------------------------------------------------------------------------- */
+  quemSomos: {
+    texto: "Somos **Davi e Maria Clara**, um casal que canta junto há anos. Hoje levamos essa música para o dia mais importante da vida de outros casais, e cada cerimônia é preparada com o mesmo cuidado que teríamos com a nossa.",
+    textoMusicos: "Ao nosso lado, músicos parceiros profissionais de teclado, metais e violino, escolhidos a dedo para cada cerimônia.",
+    davi: {
+      nome: "Davi",
+      funcao: "Voz e violão",
+      foto: "imagens/site/davi.jpg"
+    },
+    parceira: {
+      nome: "Maria Clara",
+      funcao: "Voz",
+      foto: "imagens/site/maria-clara.jpg"
+    },
+    // Foto que acompanha o parágrafo dos músicos parceiros (deixe "" para tirar).
+    fotoMusicos: "imagens/site/grupo-igreja.jpg",
+    fotoMusicosAlt: "Músicos do Grupo Encante com trompetes e saxofone diante do altar"
+  },
+
+  /* -------------------------------------------------------------------------
+     11) DEPOIMENTOS
      A seção só aparece se houver pelo menos um depoimento aqui dentro.
      Nunca publique depoimento sem autorização do casal.
      Modelo para copiar e colar dentro dos colchetes:
@@ -251,9 +242,9 @@ const CONFIG = {
   depoimentos: [],
 
   /* -------------------------------------------------------------------------
-     10) PERGUNTAS FREQUENTES
-     Quase todas as respostas estão provisórias. Troque pelo texto real e
-     mude "provisorio" para false em cada uma que você já revisou.
+     12) PERGUNTAS FREQUENTES
+     Troque o texto de "resposta" e mude "provisorio" para false quando a
+     resposta já estiver revisada.
      ------------------------------------------------------------------------- */
   perguntas: [
     {
@@ -288,7 +279,7 @@ const CONFIG = {
     },
     {
       pergunta: "Podemos personalizar a formação?",
-      resposta: "Podem. Os planos são um ponto de partida: dá para ajustar os instrumentos conforme o que vocês imaginam para a cerimônia.",
+      resposta: "Podem. As bases e os destaques são um ponto de partida: dá para ajustar os instrumentos conforme o que vocês imaginam para a cerimônia.",
       provisorio: false
     }
   ]

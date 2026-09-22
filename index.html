@@ -29,7 +29,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400;6..96,500;6..96,600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-<link rel="stylesheet" href="assets/css/style.css?v=2">
+<link rel="stylesheet" href="assets/css/style.css?v=3">
 </head>
 <body>
 
@@ -91,7 +91,7 @@
 <!-- ===================== 3. O QUE ESTÁ INCLUSO ===================== -->
 <section class="secao secao--azul" id="incluso" aria-labelledby="titulo-incluso">
   <div class="container">
-    <p class="secao__chapeu">Em qualquer plano</p>
+    <p class="secao__chapeu">Em qualquer formação</p>
     <h2 class="secao__titulo" id="titulo-incluso">O que está incluso</h2>
     <p class="secao__texto secao__texto--centro">
       Seja qual for a formação escolhida, a gente cuida da cerimônia inteira.
@@ -117,16 +117,7 @@
       <p class="etapa__texto">
         É a formação que conduz a cerimônia do início ao fim.
       </p>
-      <div class="bases">
-        <article class="base">
-          <h4 class="base__nome">Essencial</h4>
-          <p class="base__formacao">Duas vozes e violão</p>
-        </article>
-        <article class="base">
-          <h4 class="base__nome">Harmonia</h4>
-          <p class="base__formacao">Duas vozes, violão e teclado</p>
-        </article>
-      </div>
+      <div class="planos-lista planos-lista--dois" id="lista-bases"></div>
     </div>
 
     <!-- Etapa 2 -->
@@ -136,37 +127,19 @@
       <p class="etapa__texto">
         A marcha nupcial é o momento que prepara os convidados e abre as portas
         para a noiva entrar, antecedendo a música que ela escolheu para a sua
-        entrada. Nós oferecemos duas formas de viver esse instante, com músicos
-        à frente do altar para receber a noiva. Normalmente o casal escolhe um
-        dos dois.
+        entrada. Esse instante ganha músicos à frente do altar para receber a
+        noiva.
       </p>
-      <div class="destaques">
-        <article class="destaque">
-          <div class="destaque__icone" aria-hidden="true" data-icone="trompete"></div>
-          <h4 class="destaque__nome">Metais</h4>
-          <p class="destaque__texto">
-            Trompetes — e sax tenor na versão completa. Presença imponente e marcante.
-          </p>
-        </article>
-        <article class="destaque">
-          <div class="destaque__icone" aria-hidden="true" data-icone="violino"></div>
-          <h4 class="destaque__nome">Violino</h4>
-          <p class="destaque__texto">
-            Mais delicado e emocionante. Também brilha nas músicas instrumentais da cerimônia.
-          </p>
-        </article>
-      </div>
+      <div class="planos-lista" id="lista-destaques"></div>
+      <p class="etapa__nota" id="nota-destaques"></p>
     </div>
 
-    <!-- Cartões dos planos -->
-    <div class="planos" id="lista-planos"></div>
-
-    <!-- Plano em destaque -->
+    <!-- Encante Completo -->
     <div class="plano-completo" id="plano-destaque"></div>
 
     <p class="secao__rodape">
       Todos os instrumentos ficam com músicos parceiros profissionais. Qualquer
-      plano pode ser ajustado conforme o que vocês imaginam para a cerimônia.
+      formação pode ser ajustada conforme o que vocês imaginam para a cerimônia.
     </p>
   </div>
 </section>
@@ -202,14 +175,10 @@
           <label class="opcao"><input type="checkbox" name="instrumento" value="vozes" checked><span>Vozes</span></label>
           <label class="opcao"><input type="checkbox" name="instrumento" value="violão" checked><span>Violão</span></label>
           <label class="opcao"><input type="checkbox" name="instrumento" value="teclado"><span>Teclado</span></label>
-          <label class="opcao"><input type="checkbox" name="instrumento" value="trompetes" data-grupo="metais"><span>Trompetes</span></label>
-          <label class="opcao"><input type="checkbox" name="instrumento" value="sax tenor" data-grupo="metais"><span>Sax tenor</span></label>
-          <label class="opcao"><input type="checkbox" name="instrumento" value="violino" data-grupo="violino"><span>Violino</span></label>
+          <label class="opcao"><input type="checkbox" name="instrumento" value="trompetes"><span>Trompetes</span></label>
+          <label class="opcao"><input type="checkbox" name="instrumento" value="saxofone"><span>Saxofone</span></label>
+          <label class="opcao"><input type="checkbox" name="instrumento" value="violino"><span>Violino</span></label>
         </div>
-        <p class="aviso" id="aviso-instrumentos" hidden>
-          Normalmente o casal escolhe metais ou violino, não os dois — mas a
-          gente pode conversar sobre isso com calma.
-        </p>
       </fieldset>
 
       <div class="campo campo--duplo">
@@ -301,14 +270,13 @@
   <div class="container">
     <p class="secao__chapeu">Quem somos</p>
     <h2 class="secao__titulo" id="titulo-quem-somos">A gente por trás da música</h2>
+    <p class="secao__texto secao__texto--centro" id="texto-quem-somos"></p>
+
     <div class="pessoas" id="lista-pessoas"></div>
 
     <div class="musicos">
       <figure class="musicos__foto" id="foto-musicos" hidden></figure>
-      <div>
-        <h3 class="musicos__titulo">Músicos parceiros</h3>
-        <p class="musicos__texto" id="texto-musicos"></p>
-      </div>
+      <p class="musicos__texto" id="texto-musicos"></p>
     </div>
   </div>
 </section>
@@ -355,7 +323,7 @@
   <span class="flutuante__texto">Consultar valores</span>
 </a>
 
-<script src="assets/js/config.js?v=2"></script>
-<script src="assets/js/app.js?v=2"></script>
+<script src="assets/js/config.js?v=3"></script>
+<script src="assets/js/app.js?v=3"></script>
 </body>
 </html>

@@ -173,7 +173,6 @@ p { margin: 0 0 1rem; }
 }
 .plano__figura .icone-imagem { width: 104px; height: 104px; }
 .plano-destaque__icone:has(.icone-imagem) { width: 112px; height: 112px; }
-.destaque__icone .icone-imagem,
 .incluso__icone .icone-imagem { width: 100%; height: 100%; }
 
 /* Etiqueta de conteúdo provisório */
@@ -629,49 +628,13 @@ p { margin: 0 0 1rem; }
 
 .etapa__texto { margin: 0 0 1.5rem; color: var(--grafite-suave); }
 
-.bases, .destaques {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 1rem;
-}
-
-.base {
-  padding: 1.1rem 1.25rem;
-  background: var(--branco);
-  border: 1px solid rgba(30, 42, 68, 0.12);
-  border-left: 3px solid var(--dourado);
-  border-radius: var(--raio);
-}
-.base__nome { font-size: 1.25rem; color: var(--azul); }
-.base__formacao { margin: 0.2rem 0 0; font-size: 0.95rem; color: var(--grafite-suave); }
-
-.destaque {
-  padding: 1.5rem 1.25rem;
-  background: var(--branco);
-  border: 1px solid rgba(30, 42, 68, 0.12);
-  border-radius: var(--raio);
+.etapa__nota {
+  margin: 1.5rem auto 0;
+  max-width: 44rem;
   text-align: center;
+  font-size: 0.95rem;
+  color: var(--grafite-suave);
 }
-.destaque__icone { width: 56px; height: 56px; margin: 0 auto 0.75rem; }
-.destaque__icone svg { width: 100%; height: 100%; stroke: var(--dourado); fill: none; stroke-width: 1.2; }
-.destaque__nome { font-size: 1.3rem; color: var(--azul); margin-bottom: 0.4rem; }
-.destaque__texto { margin: 0; font-size: 0.95rem; color: var(--grafite-suave); }
-
-.planos-grupo { margin-top: 2.25rem; }
-
-.planos-grupo__titulo {
-  font-size: 0.75rem;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--salvia);
-  font-family: var(--fonte-texto);
-  font-weight: 600;
-  margin: 0 0 1rem;
-  padding-bottom: 0.5rem;
-  border-bottom: 1px solid rgba(138, 154, 123, 0.35);
-}
-
-.planos { margin-top: 2.75rem; }
 
 .planos-lista {
   display: grid;
@@ -842,16 +805,6 @@ input[type="text"], input[type="date"] {
 }
 input[type="text"]::placeholder { color: #8C8578; }
 
-.aviso {
-  margin: 0.85rem 0 0;
-  padding: 0.75rem 0.9rem;
-  background: rgba(138, 154, 123, 0.18);
-  border-left: 3px solid var(--salvia);
-  border-radius: var(--raio);
-  font-size: 0.92rem;
-  color: #DCE3D3;
-}
-
 .formulario__nota {
   margin: 1rem 0 0;
   font-size: 0.85rem;
@@ -974,7 +927,7 @@ input[type="text"]::placeholder { color: #8C8578; }
 .musicos__foto { margin: 0; }
 .musicos__foto img {
   width: 100%;
-  aspect-ratio: 4 / 3;
+  aspect-ratio: 3 / 2;
   object-fit: cover;
   border-radius: var(--raio);
   border: 1px solid rgba(184, 149, 90, 0.45);
@@ -1177,8 +1130,6 @@ input[type="text"]::placeholder { color: #8C8578; }
   .videos__dica, .momentos__dica { display: none; }
 
   .inclusos { grid-template-columns: repeat(2, 1fr); }
-
-  .bases, .destaques { grid-template-columns: repeat(2, 1fr); gap: 1.25rem; }
 
   .planos-lista { grid-template-columns: repeat(2, 1fr); }
 

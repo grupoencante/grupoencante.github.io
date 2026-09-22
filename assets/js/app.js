@@ -16,7 +16,7 @@
     violino: '<svg viewBox="0 0 48 48" aria-hidden="true" stroke-linecap="round" stroke-linejoin="round"><path d="M21 41c-4.4 0-7.6-3-7.6-6.9 0-2.4 1.5-4 2.6-5.4.9-1.1 1.4-2 1.4-2.9s-.5-1.8-1.4-2.7c-1-1.1-2.2-2.4-2.2-4.3 0-3.3 3.2-5.7 7.2-5.7s7.2 2.4 7.2 5.7c0 1.9-1.2 3.2-2.2 4.3-.9.9-1.4 1.8-1.4 2.7s.5 1.8 1.4 2.9c1.1 1.4 2.6 3 2.6 5.4 0 3.9-3.2 6.9-7.6 6.9z"/><path d="M17.6 27c-.8 2.1-.8 4.3 0 6.4M24.4 27c.8 2.1.8 4.3 0 6.4"/><path d="M24.4 16.6l6.4-6.4"/><path d="M30.8 10.2c1.2-1.2 3.1-1.2 4.3 0 1.2 1.2 1.2 3.1 0 4.3-.9.9-2.4 1-3.4.2"/><path d="M7.5 34.5L33.5 21.5"/></svg>',
     teclado: '<svg viewBox="0 0 48 48" aria-hidden="true" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="15" width="38" height="19" rx="2"/><path d="M13.5 15v11M22 15v11M30.5 15v11M38 15v11"/><path d="M5 26h38"/><path d="M10 15v7h3v-7M18.5 15v7h3v-7M27 15v7h3v-7M35.5 15v7h3v-7"/></svg>',
     trompete: '<svg viewBox="0 0 48 48" aria-hidden="true" stroke-linecap="round" stroke-linejoin="round"><path d="M43 15.5v17l-9-4.3v-8.4z"/><path d="M34 24H13.5"/><path d="M17 17.5h3.2v6.5H17zM23 17.5h3.2v6.5H23zM29 17.5h3.2v6.5H29z"/><path d="M13.5 20.5v7"/><path d="M13.5 24h-4"/><path d="M9.5 21.5v5"/></svg>',
-    sax: '<svg viewBox="0 0 48 48" aria-hidden="true" stroke-linecap="round" stroke-linejoin="round"><path d="M26.5 5.5h8"/><path d="M30.5 5.5v16.8c0 9.8-4.8 16.2-12 16.2-4.6 0-8.2-3.4-8.2-7.6 0-4.2 3.4-7.3 7.8-7.3h4.6"/><path d="M10.3 30.9c-2.8-.6-5.4.7-6.3 3l6.6 2.8"/><circle cx="30.5" cy="13" r="1.3"/><circle cx="30.5" cy="19" r="1.3"/></svg>',
+    saxofone: '<svg viewBox="0 0 48 48" aria-hidden="true" stroke-linecap="round" stroke-linejoin="round"><path d="M26.5 5.5h8"/><path d="M30.5 5.5v16.8c0 9.8-4.8 16.2-12 16.2-4.6 0-8.2-3.4-8.2-7.6 0-4.2 3.4-7.3 7.8-7.3h4.6"/><path d="M10.3 30.9c-2.8-.6-5.4.7-6.3 3l6.6 2.8"/><circle cx="30.5" cy="13" r="1.3"/><circle cx="30.5" cy="19" r="1.3"/></svg>',
     cerimonia: '<svg viewBox="0 0 48 48" aria-hidden="true"><path d="M24 4v40"/><path d="M14 16h20"/><path d="M8 44V28c0-8.8 7.2-16 16-16s16 7.2 16 16v16"/></svg>',
     entradas: '<svg viewBox="0 0 48 48" aria-hidden="true"><path d="M12 42V14c0-4.4 3.6-8 8-8h8c4.4 0 8 3.6 8 8v28"/><path d="M6 42h36"/><circle cx="30" cy="24" r="1.6"/><path d="M20 14c0-2.2 1.8-4 4-4s4 1.8 4 4"/></svg>',
     repertorio: '<svg viewBox="0 0 48 48" aria-hidden="true"><path d="M18 34V10l20-4v24"/><circle cx="14" cy="34" r="4.2"/><circle cx="34" cy="30" r="4.2"/><path d="M18 17l20-4"/></svg>',
@@ -34,6 +34,12 @@
     return String(valor == null ? "" : valor).replace(/[&<>"']/g, function (c) {
       return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c];
     });
+  }
+
+  // Deixa em negrito o que estiver entre **asteriscos duplos**.
+  // O texto é escapado antes, então isso não abre porta para HTML solto.
+  function negrito(valor) {
+    return texto(valor).replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>");
   }
 
   // Se houver um arquivo de ícone no config, ele tem preferência sobre o
@@ -322,82 +328,73 @@
   }
 
   /* ---------------------------------------------------------------------
-     Planos
+     Formações (bases, destaques e o Encante Completo)
      --------------------------------------------------------------------- */
-  function cartaoPlano(plano) {
-    const figura = plano.foto
-      ? '<div class="plano__figura" style="background-image:url(&quot;' + texto(plano.foto) + '&quot;)" role="img" aria-label="Foto do instrumento do plano ' + texto(plano.nome) + '"></div>'
-      : '<div class="plano__figura" aria-hidden="true">' + icone(plano.icone) + "</div>";
+  // Um cartão de base (etapa 1) ou de destaque (etapa 2).
+  // "tipo" decide qual mensagem do WhatsApp o botão usa.
+  function cartaoFormacao(item, tipo) {
+    const figura = item.foto
+      ? '<div class="plano__figura" style="background-image:url(&quot;' + texto(item.foto) + '&quot;)" role="img" aria-label="Foto do instrumento da formação ' + texto(item.nome) + '"></div>'
+      : '<div class="plano__figura" aria-hidden="true">' + icone(item.icone) + "</div>";
 
     return (
       '<article class="plano">' +
         figura +
         '<div class="plano__corpo">' +
-          '<h4 class="plano__nome">' + texto(plano.nome) + "</h4>" +
-          '<p class="plano__formacao">' + texto(plano.formacao) + "</p>" +
-          '<p class="plano__descricao">' + texto(plano.descricao) + "</p>" +
-          '<a class="botao botao--contorno" href="#" data-plano="' + texto(plano.nome) + '">Consultar valores</a>' +
+          '<h4 class="plano__nome">' + texto(item.nome) + "</h4>" +
+          '<p class="plano__formacao">' + texto(item.formacao) + "</p>" +
+          '<p class="plano__descricao">' + texto(item.descricao) + "</p>" +
+          '<a class="botao botao--contorno" href="#" data-zap-tipo="' + tipo + '" data-zap-nome="' + texto(item.nome) + '">Consultar valores</a>' +
         "</div>" +
       "</article>"
     );
   }
 
-  function montarPlanos() {
-    const planos = CONFIG.planos || [];
-    const comuns = planos.filter(function (p) { return !p.emDestaque; });
-    const destaque = planos.find(function (p) { return p.emDestaque; });
+  function montarFormacoes() {
+    const bases = CONFIG.bases || [];
+    const destaques = CONFIG.destaques || [];
+    const completo = CONFIG.completo;
 
-    const essenciais = comuns.filter(function (p) { return p.base === "essencial"; });
-    const harmonias = comuns.filter(function (p) { return p.base !== "essencial"; });
+    document.getElementById("lista-bases").innerHTML = bases
+      .map(function (item) { return cartaoFormacao(item, "plano"); })
+      .join("");
 
-    let html = "";
+    document.getElementById("lista-destaques").innerHTML = destaques
+      .map(function (item) { return cartaoFormacao(item, "destaque"); })
+      .join("");
 
-    if (essenciais.length) {
-      html +=
-        '<div class="planos-grupo">' +
-          '<h3 class="planos-grupo__titulo">Sobre a base Essencial</h3>' +
-          '<div class="planos-lista planos-lista--dois">' + essenciais.map(cartaoPlano).join("") + "</div>" +
-        "</div>";
-    }
-    if (harmonias.length) {
-      html +=
-        '<div class="planos-grupo">' +
-          '<h3 class="planos-grupo__titulo">Sobre a base Harmonia</h3>' +
-          '<div class="planos-lista">' + harmonias.map(cartaoPlano).join("") + "</div>" +
-        "</div>";
+    const nota = document.getElementById("nota-destaques");
+    if (nota) {
+      nota.textContent = CONFIG.notaDestaques || "";
+      nota.hidden = !CONFIG.notaDestaques;
     }
 
-    document.getElementById("lista-planos").innerHTML = html;
+    const caixaCompleto = document.getElementById("plano-destaque");
+    if (completo) {
+      const figura = completo.foto
+        ? '<div class="plano-destaque__icone" style="background-image:url(&quot;' + texto(completo.foto) + '&quot;);background-size:cover;border-radius:50%" role="img" aria-label="Foto da formação Encante Completo"></div>'
+        : '<div class="plano-destaque__icone" aria-hidden="true">' + icone(completo.icone) + "</div>";
 
-    const caixaDestaque = document.getElementById("plano-destaque");
-    if (destaque) {
-      const figura = destaque.foto
-        ? '<div class="plano-destaque__icone" style="background-image:url(&quot;' + texto(destaque.foto) + '&quot;);background-size:cover;border-radius:50%" role="img" aria-label="Foto do instrumento do plano Encante Completo"></div>'
-        : '<div class="plano-destaque__icone" aria-hidden="true">' + icone(destaque.icone) + "</div>";
-
-      caixaDestaque.innerHTML =
+      caixaCompleto.innerHTML =
         '<article class="plano-destaque">' +
-          (destaque.selo ? '<p class="plano-destaque__selo">' + texto(destaque.selo) + "</p>" : "") +
+          (completo.selo ? '<p class="plano-destaque__selo">' + texto(completo.selo) + "</p>" : "") +
           figura +
-          (destaque.seloProvisorio ? marcaProvisoria("Texto do selo a confirmar") : "") +
-          '<h3 class="plano-destaque__nome">' + texto(destaque.nome) + "</h3>" +
-          '<p class="plano-destaque__formacao">' + texto(destaque.formacao) + "</p>" +
-          '<p class="plano-destaque__descricao">' + texto(destaque.descricao) + "</p>" +
-          '<a class="botao botao--principal" href="#" data-plano="' + texto(destaque.nome) + '">Consultar valores</a>' +
+          (completo.seloProvisorio ? marcaProvisoria("Texto do selo a confirmar") : "") +
+          '<h3 class="plano-destaque__nome">' + texto(completo.nome) + "</h3>" +
+          '<p class="plano-destaque__formacao">' + texto(completo.formacao) + "</p>" +
+          '<p class="plano-destaque__descricao">' + texto(completo.descricao) + "</p>" +
+          '<a class="botao botao--principal" href="#" data-zap-tipo="completo" data-zap-nome="' + texto(completo.nome) + '">Consultar valores</a>' +
         "</article>";
     } else {
-      caixaDestaque.innerHTML = "";
+      caixaCompleto.innerHTML = "";
     }
 
-    // Liga todos os botões de plano ao WhatsApp.
-    document.querySelectorAll("[data-plano]").forEach(function (botao) {
-      const mensagem = CONFIG.mensagens.plano.replace("[NOME DO PLANO]", botao.getAttribute("data-plano"));
-      aplicarWhatsApp(botao, mensagem);
-    });
-
-    // Ícones das duas formas de marcha nupcial (etapa 2).
-    document.querySelectorAll("[data-icone]").forEach(function (caixa) {
-      caixa.innerHTML = icone(caixa.getAttribute("data-icone"));
+    // Liga todos os botões "Consultar valores" ao WhatsApp.
+    document.querySelectorAll("[data-zap-tipo]").forEach(function (botao) {
+      const tipo = botao.getAttribute("data-zap-tipo");
+      const nome = botao.getAttribute("data-zap-nome");
+      const modelo = (CONFIG.mensagens && CONFIG.mensagens[tipo]) || CONFIG.mensagens.geral;
+      aplicarWhatsApp(botao, modelo.replace("[NOME]", nome));
     });
   }
 
@@ -430,23 +427,7 @@
 
   function montarFormulario() {
     const formulario = document.getElementById("formulario-plano");
-    const aviso = document.getElementById("aviso-instrumentos");
     const caixas = formulario.querySelectorAll('input[name="instrumento"]');
-
-    // Aviso gentil quando o casal marca metais e violino ao mesmo tempo.
-    function conferirAviso() {
-      let temMetais = false;
-      let temViolino = false;
-      caixas.forEach(function (caixa) {
-        if (!caixa.checked) return;
-        if (caixa.getAttribute("data-grupo") === "metais") temMetais = true;
-        if (caixa.getAttribute("data-grupo") === "violino") temViolino = true;
-      });
-      aviso.hidden = !(temMetais && temViolino);
-    }
-    caixas.forEach(function (caixa) {
-      caixa.addEventListener("change", conferirAviso);
-    });
 
     formulario.addEventListener("submit", function (evento) {
       evento.preventDefault();
@@ -500,16 +481,20 @@
         '<h3 class="pessoa__nome">' + texto(pessoa.nome) + "</h3>" +
         '<p class="pessoa__funcao">' + texto(pessoa.funcao) + "</p>" +
         (pessoa.provisorio ? marcaProvisoria("A revisar") : "") +
-        "<p>" + texto(pessoa.texto) + "</p>" +
+        (pessoa.texto ? "<p>" + texto(pessoa.texto) + "</p>" : "") +
       "</article>"
     );
   }
 
   function montarQuemSomos() {
     const dados = CONFIG.quemSomos || {};
+
+    const apresentacao = document.getElementById("texto-quem-somos");
+    if (apresentacao) apresentacao.innerHTML = negrito(dados.texto || "");
+
     document.getElementById("lista-pessoas").innerHTML =
       (dados.davi ? pessoaHtml(dados.davi) : "") + (dados.parceira ? pessoaHtml(dados.parceira) : "");
-    document.getElementById("texto-musicos").textContent = dados.musicos || "";
+    document.getElementById("texto-musicos").innerHTML = negrito(dados.textoMusicos || "");
 
     const foto = document.getElementById("foto-musicos");
     if (dados.fotoMusicos) {
@@ -608,7 +593,7 @@
     montarVideos();
     montarGaleria();
     montarInclusos();
-    montarPlanos();
+    montarFormacoes();
     montarFormulario();
     montarQuemSomos();
     montarDepoimentos();
