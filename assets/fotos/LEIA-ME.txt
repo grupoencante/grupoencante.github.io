@@ -1,0 +1,6 @@
+Coloque aqui as fotos do site:
+- foto do grupo tocando (fundo do topo)
+- foto do Davi e da parceira (seção Quem somos)
+- fotos fechadas dos instrumentos (cartões dos planos)
+- og-grupo-encante.png (imagem que aparece quando o link é compartilhado)
+Depois escreva o nome de cada arquivo em assets/js/config.js.

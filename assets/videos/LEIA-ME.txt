@@ -1,0 +1,3 @@
+Coloque aqui os vídeos da página (MP4, H.264, vertical, até 10 MB cada).
+Depois escreva o nome do arquivo em assets/js/config.js, na parte "videos".
+Exemplo: assets/videos/entrada-da-noiva.mp4

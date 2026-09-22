@@ -1,0 +1,12 @@
+# Material bruto: fica só no computador do Davi, não vai para a internet.
+imagens/imagens-casais+nos/
+imagens/imagens-DavieClara/
+imagens/*.svg
+imagens/*.jpeg
+imagens/*.jpg
+imagens/LEIA-ME.txt
+
+# Arquivos de trabalho
+captura-temporaria.html
+teste-setas.js
+.claude/

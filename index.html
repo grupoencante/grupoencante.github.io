@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+<title>Grupo Encante — Música para cerimônias de casamento</title>
+<meta name="description" content="Grupo musical que musicaliza toda a sua cerimônia de casamento, das entradas à música final. Vozes, violão, teclado, metais e violino. Fale com a gente no WhatsApp.">
+
+<!-- Pré-visualização do link no WhatsApp e no Instagram -->
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:title" content="Grupo Encante — Música para cerimônias de casamento">
+<meta property="og:description" content="Musicalizamos toda a sua cerimônia, das entradas à música final.">
+<meta property="og:image" content="assets/fotos/og-grupo-encante.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#1E2A44">
+
+<link rel="icon" href="assets/icones/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/icones/favicon.svg">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400;6..96,500;6..96,600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="assets/css/style.css?v=2">
+</head>
+<body>
+
+<a class="pular-para-conteudo" href="#conteudo">Pular para o conteúdo</a>
+
+<!-- ===================== 1. TOPO ===================== -->
+<header class="topo" id="topo">
+  <div class="topo__fundo" id="topo-fundo" aria-hidden="true"></div>
+  <div class="topo__veu" aria-hidden="true"></div>
+
+  <div class="topo__conteudo container" id="conteudo">
+    <p class="topo__marca">Grupo Encante</p>
+    <div class="ornamento ornamento--claro" aria-hidden="true"><span></span><i></i><span></span></div>
+    <h1 class="topo__titulo">Prontos para o dia mais feliz da sua vida?</h1>
+    <p class="topo__subtitulo">Musicalizamos toda a sua cerimônia, das entradas à música final.</p>
+    <div class="topo__botoes">
+      <a class="botao botao--principal" href="#" data-whatsapp="geral">Consultar valores no WhatsApp</a>
+      <a class="botao botao--contorno-claro" href="#planos">Conhecer os planos</a>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<!-- ===================== 2. VÍDEOS ===================== -->
+<section class="secao secao--marfim" id="videos" aria-labelledby="titulo-videos">
+  <div class="container">
+    <p class="secao__chapeu">Veja e ouça</p>
+    <h2 class="secao__titulo" id="titulo-videos">Veja o Encante em ação</h2>
+    <p class="secao__texto secao__texto--centro">
+      Aperte o play e ouça com som — é assim que soa na igreja.
+    </p>
+
+    <div class="videos" id="lista-videos"></div>
+    <p class="videos__dica" id="dica-videos" hidden>Deslize para o lado para ver os outros</p>
+
+    <div class="momentos" id="bloco-momentos" hidden>
+      <div class="ornamento" aria-hidden="true"><span></span><i></i><span></span></div>
+      <h3 class="momentos__titulo">Momentos</h3>
+      <p class="momentos__texto">Casais que já viveram a cerimônia com a gente.</p>
+      <div class="momentos__palco">
+        <button class="momentos__seta momentos__seta--esquerda" id="seta-esquerda" type="button" aria-label="Ver fotos anteriores">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="momentos__lista" id="lista-galeria" tabindex="0" role="region" aria-label="Fotos de casamentos com o Grupo Encante"></div>
+        <button class="momentos__seta momentos__seta--direita" id="seta-direita" type="button" aria-label="Ver mais fotos">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </div>
+      <p class="videos__dica momentos__dica" id="dica-momentos" hidden>Deslize para o lado para ver mais</p>
+    </div>
+
+    <div class="centralizado">
+      <a class="botao botao--contorno" href="https://www.instagram.com/grupo_encante/" id="link-instagram" target="_blank" rel="noopener">Ver mais no Instagram</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== 3. O QUE ESTÁ INCLUSO ===================== -->
+<section class="secao secao--azul" id="incluso" aria-labelledby="titulo-incluso">
+  <div class="container">
+    <p class="secao__chapeu">Em qualquer plano</p>
+    <h2 class="secao__titulo" id="titulo-incluso">O que está incluso</h2>
+    <p class="secao__texto secao__texto--centro">
+      Seja qual for a formação escolhida, a gente cuida da cerimônia inteira.
+    </p>
+    <ul class="inclusos" id="lista-inclusos"></ul>
+  </div>
+</section>
+
+<!-- ===================== 4. PLANOS ===================== -->
+<section class="secao secao--marfim" id="planos" aria-labelledby="titulo-planos">
+  <div class="container">
+    <p class="secao__chapeu">Formações</p>
+    <h2 class="secao__titulo" id="titulo-planos">Escolha em duas etapas</h2>
+    <p class="secao__texto secao__texto--centro">
+      Primeiro a base que acompanha toda a cerimônia. Depois, se vocês quiserem,
+      o destaque da marcha nupcial.
+    </p>
+
+    <!-- Etapa 1 -->
+    <div class="etapa">
+      <p class="etapa__numero">Etapa 1</p>
+      <h3 class="etapa__titulo">A base</h3>
+      <p class="etapa__texto">
+        É a formação que conduz a cerimônia do início ao fim.
+      </p>
+      <div class="bases">
+        <article class="base">
+          <h4 class="base__nome">Essencial</h4>
+          <p class="base__formacao">Duas vozes e violão</p>
+        </article>
+        <article class="base">
+          <h4 class="base__nome">Harmonia</h4>
+          <p class="base__formacao">Duas vozes, violão e teclado</p>
+        </article>
+      </div>
+    </div>
+
+    <!-- Etapa 2 -->
+    <div class="etapa">
+      <p class="etapa__numero">Etapa 2</p>
+      <h3 class="etapa__titulo">O destaque da marcha nupcial</h3>
+      <p class="etapa__texto">
+        A marcha nupcial é o momento que prepara os convidados e abre as portas
+        para a noiva entrar, antecedendo a música que ela escolheu para a sua
+        entrada. Nós oferecemos duas formas de viver esse instante, com músicos
+        à frente do altar para receber a noiva. Normalmente o casal escolhe um
+        dos dois.
+      </p>
+      <div class="destaques">
+        <article class="destaque">
+          <div class="destaque__icone" aria-hidden="true" data-icone="trompete"></div>
+          <h4 class="destaque__nome">Metais</h4>
+          <p class="destaque__texto">
+            Trompetes — e sax tenor na versão completa. Presença imponente e marcante.
+          </p>
+        </article>
+        <article class="destaque">
+          <div class="destaque__icone" aria-hidden="true" data-icone="violino"></div>
+          <h4 class="destaque__nome">Violino</h4>
+          <p class="destaque__texto">
+            Mais delicado e emocionante. Também brilha nas músicas instrumentais da cerimônia.
+          </p>
+        </article>
+      </div>
+    </div>
+
+    <!-- Cartões dos planos -->
+    <div class="planos" id="lista-planos"></div>
+
+    <!-- Plano em destaque -->
+    <div class="plano-completo" id="plano-destaque"></div>
+
+    <p class="secao__rodape">
+      Todos os instrumentos ficam com músicos parceiros profissionais. Qualquer
+      plano pode ser ajustado conforme o que vocês imaginam para a cerimônia.
+    </p>
+  </div>
+</section>
+
+<!-- ===================== 5. MONTE SEU PLANO ===================== -->
+<section class="secao secao--azul" id="monte" aria-labelledby="titulo-monte">
+  <div class="container container--estreito">
+    <p class="secao__chapeu">Do seu jeito</p>
+    <h2 class="secao__titulo" id="titulo-monte">Monte seu plano</h2>
+    <p class="secao__texto secao__texto--centro">
+      Escolha a formação que vocês imaginam e envie para a gente no WhatsApp.
+    </p>
+
+    <form class="formulario" id="formulario-plano" novalidate>
+
+      <fieldset class="campo">
+        <legend class="campo__titulo">Tipo de cerimônia</legend>
+        <div class="opcoes opcoes--duas">
+          <label class="opcao">
+            <input type="radio" name="cerimonia" value="celebração" checked>
+            <span>Celebração</span>
+          </label>
+          <label class="opcao">
+            <input type="radio" name="cerimonia" value="missa">
+            <span>Missa</span>
+          </label>
+        </div>
+      </fieldset>
+
+      <fieldset class="campo">
+        <legend class="campo__titulo">Instrumentos desejados</legend>
+        <div class="opcoes">
+          <label class="opcao"><input type="checkbox" name="instrumento" value="vozes" checked><span>Vozes</span></label>
+          <label class="opcao"><input type="checkbox" name="instrumento" value="violão" checked><span>Violão</span></label>
+          <label class="opcao"><input type="checkbox" name="instrumento" value="teclado"><span>Teclado</span></label>
+          <label class="opcao"><input type="checkbox" name="instrumento" value="trompetes" data-grupo="metais"><span>Trompetes</span></label>
+          <label class="opcao"><input type="checkbox" name="instrumento" value="sax tenor" data-grupo="metais"><span>Sax tenor</span></label>
+          <label class="opcao"><input type="checkbox" name="instrumento" value="violino" data-grupo="violino"><span>Violino</span></label>
+        </div>
+        <p class="aviso" id="aviso-instrumentos" hidden>
+          Normalmente o casal escolhe metais ou violino, não os dois — mas a
+          gente pode conversar sobre isso com calma.
+        </p>
+      </fieldset>
+
+      <div class="campo campo--duplo">
+        <div>
+          <label class="campo__titulo" for="data">Data do casamento</label>
+          <input type="date" id="data" name="data">
+        </div>
+        <div>
+          <label class="campo__titulo" for="local">Cidade ou igreja</label>
+          <input type="text" id="local" name="local" placeholder="Ex.: Igreja Matriz de Parelhas" autocomplete="off">
+        </div>
+      </div>
+
+      <div class="campo">
+        <label class="campo__titulo" for="nome">Seu nome <span class="campo__opcional">(opcional)</span></label>
+        <input type="text" id="nome" name="nome" placeholder="Como podemos te chamar?" autocomplete="name">
+      </div>
+
+      <button type="submit" class="botao botao--principal botao--largo">Enviar pelo WhatsApp</button>
+
+      <p class="formulario__nota">
+        Nada é enviado por aqui: ao tocar no botão, o WhatsApp abre com a
+        mensagem já escrita para você conferir antes de mandar.
+      </p>
+    </form>
+  </div>
+</section>
+
+<!-- ===================== 6. GUIA DAS ENTRADAS ===================== -->
+<section class="secao secao--marfim" id="guia" aria-labelledby="titulo-guia">
+  <div class="container container--estreito">
+    <p class="secao__chapeu">Guia das entradas</p>
+    <h2 class="secao__titulo" id="titulo-guia">Não sabe quais músicas escolher? A gente te ajuda</h2>
+    <p class="secao__texto">
+      Esta é a ordem tradicional de uma cerimônia. Ela varia conforme a igreja,
+      o celebrante e o gosto do casal — use como ponto de partida, não como regra.
+    </p>
+
+    <h3 class="subtitulo">Cortejo de entrada</h3>
+    <div class="tabela-rolavel" tabindex="0" role="region" aria-label="Ordem do cortejo de entrada">
+      <table class="tabela">
+        <thead>
+          <tr><th scope="col">Ordem</th><th scope="col">Quem entra</th><th scope="col">Música</th></tr>
+        </thead>
+        <tbody>
+          <tr><td data-titulo="Ordem">1</td><td data-titulo="Quem entra">Noivo, geralmente com a mãe</td><td data-titulo="Música">Uma música</td></tr>
+          <tr><td data-titulo="Ordem">2</td><td data-titulo="Quem entra">Padrinhos, em casais</td><td data-titulo="Música">Uma música para todos, ou uma para os do noivo e outra para os da noiva</td></tr>
+          <tr><td data-titulo="Ordem">3</td><td data-titulo="Quem entra">Pais dos noivos (opcional)</td><td data-titulo="Música">Costuma seguir a música dos padrinhos</td></tr>
+          <tr><td data-titulo="Ordem">4</td><td data-titulo="Quem entra">Pajens, daminhas e florista</td><td data-titulo="Música">Uma música, geralmente mais leve e alegre</td></tr>
+          <tr><td data-titulo="Ordem">5</td><td data-titulo="Quem entra">Marcha nupcial</td><td data-titulo="Música">Prepara os convidados e abre as portas para a noiva</td></tr>
+          <tr><td data-titulo="Ordem">6</td><td data-titulo="Quem entra">Noiva, com o pai ou quem a conduz</td><td data-titulo="Música">A música mais especial da cerimônia</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3 class="subtitulo">Durante e depois da cerimônia</h3>
+    <div class="tabela-rolavel" tabindex="0" role="region" aria-label="Músicas durante e depois da cerimônia">
+      <table class="tabela">
+        <thead>
+          <tr><th scope="col">Momento</th><th scope="col">Música</th></tr>
+        </thead>
+        <tbody>
+          <tr><td data-titulo="Momento">Entrada das alianças</td><td data-titulo="Música">Uma música, na entrada de quem traz as alianças</td></tr>
+          <tr><td data-titulo="Momento">Troca das alianças</td><td data-titulo="Música">Música suave de fundo</td></tr>
+          <tr><td data-titulo="Momento">Assinaturas</td><td data-titulo="Música">Uma ou duas músicas de fundo, quando há casamento civil junto</td></tr>
+          <tr><td data-titulo="Momento">Saída dos noivos</td><td data-titulo="Música">Música final, animada e festiva</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="cartao-nota">
+      <h3 class="subtitulo subtitulo--sem-margem">Celebração ou missa?</h3>
+      <p>
+        Na celebração, a lista acima praticamente cobre tudo. Na missa entram
+        também os cantos da liturgia — ato penitencial, glória, salmo,
+        aclamação, ofertório, santo, cordeiro e comunhão —, por isso a missa
+        costuma ter quase o dobro de músicas.
+      </p>
+    </div>
+
+    <div class="centralizado">
+      <a class="botao botao--principal" href="#" data-whatsapp="repertorio">Montar meu repertório com vocês</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== 7. QUEM SOMOS ===================== -->
+<section class="secao secao--azul" id="quem-somos" aria-labelledby="titulo-quem-somos">
+  <div class="container">
+    <p class="secao__chapeu">Quem somos</p>
+    <h2 class="secao__titulo" id="titulo-quem-somos">A gente por trás da música</h2>
+    <div class="pessoas" id="lista-pessoas"></div>
+
+    <div class="musicos">
+      <figure class="musicos__foto" id="foto-musicos" hidden></figure>
+      <div>
+        <h3 class="musicos__titulo">Músicos parceiros</h3>
+        <p class="musicos__texto" id="texto-musicos"></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== 8. DEPOIMENTOS (some se estiver vazio) ===================== -->
+<section class="secao secao--marfim" id="depoimentos" aria-labelledby="titulo-depoimentos" hidden>
+  <div class="container">
+    <p class="secao__chapeu">Casais</p>
+    <h2 class="secao__titulo" id="titulo-depoimentos">O que os casais contam</h2>
+    <div class="depoimentos" id="lista-depoimentos"></div>
+  </div>
+</section>
+
+<!-- ===================== 9. PERGUNTAS FREQUENTES ===================== -->
+<section class="secao secao--marfim" id="perguntas" aria-labelledby="titulo-perguntas">
+  <div class="container container--estreito">
+    <p class="secao__chapeu">Dúvidas</p>
+    <h2 class="secao__titulo" id="titulo-perguntas">Perguntas frequentes</h2>
+    <div class="perguntas" id="lista-perguntas"></div>
+  </div>
+</section>
+
+</main>
+
+<!-- ===================== 10. RODAPÉ ===================== -->
+<footer class="rodape">
+  <div class="container">
+    <p class="rodape__marca">Grupo Encante</p>
+    <div class="ornamento ornamento--claro" aria-hidden="true"><span></span><i></i><span></span></div>
+    <p class="rodape__frase">Musicalizamos toda a sua cerimônia, das entradas à música final.</p>
+    <a class="botao botao--principal" href="#" data-whatsapp="geral">Consultar valores no WhatsApp</a>
+    <p class="rodape__links">
+      <a href="https://www.instagram.com/grupo_encante/" id="link-instagram-rodape" target="_blank" rel="noopener">@grupo_encante</a>
+    </p>
+    <p class="rodape__regiao" id="rodape-regiao"></p>
+  </div>
+</footer>
+
+<!-- ===================== 11. BOTÃO FLUTUANTE ===================== -->
+<a class="flutuante" href="#" data-whatsapp="geral" aria-label="Falar com o Grupo Encante no WhatsApp">
+  <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+    <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.87 9.87 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2Zm0 18.15h-.01a8.2 8.2 0 0 1-4.18-1.15l-.3-.18-3.11.82.83-3.04-.2-.31a8.19 8.19 0 0 1-1.26-4.38c0-4.54 3.7-8.23 8.24-8.23 2.2 0 4.27.86 5.82 2.42a8.18 8.18 0 0 1 2.41 5.82c0 4.54-3.69 8.23-8.24 8.23Zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.24-.64.8-.79.97-.14.16-.29.18-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.24-1.47-1.38-1.72-.15-.25-.02-.38.11-.5.11-.11.25-.29.37-.43.13-.15.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.43.06-.66.31-.23.25-.86.85-.86 2.07s.89 2.4 1.01 2.56c.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.15-1.18-.06-.11-.22-.17-.47-.29Z"/>
+  </svg>
+  <span class="flutuante__texto">Consultar valores</span>
+</a>
+
+<script src="assets/js/config.js?v=2"></script>
+<script src="assets/js/app.js?v=2"></script>
+</body>
+</html>
